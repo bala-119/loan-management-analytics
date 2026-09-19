@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: fact_loan_txn
+    description: "Transaction fact table at transaction-line grain"
+
+    columns:
+      - name: TXN_ID
+        tests:
+          - not_null
+
+      - name: AMOUNT
+        tests:
+          - not_null
+
+      - name: SK_BORROWER
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_borrower_snapshot')
+                field: SK_BORROWER

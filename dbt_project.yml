@@ -1,0 +1,36 @@
+# loan_mgmt_transformation:
+#   target: dev
+
+#   outputs:
+#     dev:
+#       type: snowflake
+#       account: XYPMRDB-UZ40819
+#       user: BALA119
+#       password: Balasubramaniyan@22369
+#       role: ACCOUNTADMIN
+#       database: LOAN_MGMT_DB
+#       warehouse: COMPUTE_WH
+#       schema: STG
+#       threads: 4
+#       client_session_keep_alive: false
+
+name: 'loan_mgmt_transformation'
+version: '1.0.0'
+config-version: 2
+
+profile: 'loan_mgmt_transformation'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  loan_mgmt_transformation:
+    +materialized: view

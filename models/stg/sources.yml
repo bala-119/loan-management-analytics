@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    database: LOAN_MGMT_DB
+    schema: RAW
+    tables:
+      - name: RAW_BORROWERS
+      - name: RAW_BRANCHES
+      - name: RAW_LOANS
+      - name: RAW_LOAN_TXN
